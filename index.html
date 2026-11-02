@@ -10,23 +10,21 @@
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg-base: #07101e;
       --bg-surface: #0d1b2e;
       --bg-card: #12243d;
       --bg-elevated: #172e4d;
-      --border-subtle: rgba(148, 163, 184, 0.16);
-      --border-emerald: rgba(16, 185, 129, 0.45);
+      --border-subtle: rgba(148, 163, 184, 0.18);
+      --border-emerald: rgba(52, 211, 153, 0.42);
       --text-primary: #f8fafc;
       --text-secondary: #cbd5e1;
       --text-muted: #94a3b8;
-      --emerald-500: #10b981;
       --emerald-400: #34d399;
-      --emerald-600: #059669;
       --emerald-700: #047857;
-      --amber-400: #fbbf24;
+      --emerald-800: #065f46;
     }
 
     * {
@@ -40,11 +38,19 @@
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg-base);
       color: var(--text-primary);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      text-wrap: balance;
+    }
+
+    p {
+      text-wrap: pretty;
     }
 
     .container {
@@ -58,7 +64,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(7, 16, 30, 0.88);
+      background: rgba(7, 16, 30, 0.92);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border-subtle);
     }
@@ -80,15 +86,15 @@
     }
 
     .brand-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 11px;
-      background: rgba(16, 185, 129, 0.16);
-      border: 1.5px solid var(--emerald-400);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-emerald);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
+      font-size: 19px;
     }
 
     .brand-title {
@@ -98,7 +104,7 @@
     }
 
     .brand-version {
-      background: rgba(16, 185, 129, 0.18);
+      background: rgba(52, 211, 153, 0.16);
       color: var(--emerald-400);
       font-size: 12px;
       font-weight: 800;
@@ -116,7 +122,7 @@
     .nav-links a {
       color: var(--text-secondary);
       text-decoration: none;
-      font-size: 14px;
+      font-size: 14.5px;
       font-weight: 600;
       transition: color 0.15s ease;
     }
@@ -131,13 +137,13 @@
       justify-content: center;
       gap: 10px;
       font-family: inherit;
-      font-weight: 800;
+      font-weight: 700;
       font-size: 15px;
       padding: 13px 24px;
       border-radius: 12px;
       text-decoration: none;
       cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      transition: transform 0.15s ease, background 0.15s ease;
       border: none;
     }
 
@@ -146,13 +152,13 @@
     }
 
     .btn-primary {
-      background: var(--emerald-600);
+      background: var(--emerald-700);
       color: #ffffff;
-      box-shadow: 0 10px 28px rgba(5, 150, 105, 0.38);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
     }
 
     .btn-primary:hover {
-      background: var(--emerald-500);
+      background: var(--emerald-800);
     }
 
     .btn-secondary {
@@ -175,29 +181,14 @@
     .hero {
       padding: 64px 0 56px;
       text-align: center;
-      background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.16), transparent 62%);
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(16, 185, 129, 0.14);
-      border: 1px solid var(--border-emerald);
-      color: var(--emerald-400);
-      font-size: 13.5px;
-      font-weight: 800;
-      padding: 7px 18px;
-      border-radius: 999px;
-      margin-bottom: 22px;
     }
 
     .hero h1 {
-      font-size: clamp(32px, 5vw, 54px);
-      font-weight: 900;
+      font-size: clamp(32px, 4.8vw, 52px);
+      font-weight: 800;
       letter-spacing: -0.025em;
       line-height: 1.15;
-      max-width: 920px;
+      max-width: 900px;
       margin: 0 auto 18px;
     }
 
@@ -206,9 +197,9 @@
     }
 
     .hero-sub {
-      font-size: clamp(16px, 2vw, 19px);
+      font-size: clamp(16px, 2vw, 18.5px);
       color: var(--text-secondary);
-      max-width: 780px;
+      max-width: 760px;
       margin: 0 auto 30px;
     }
 
@@ -227,8 +218,8 @@
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
-      font-size: 13.5px;
-      color: var(--text-muted);
+      font-size: 14px;
+      color: var(--text-secondary);
       font-weight: 600;
       margin-bottom: 42px;
     }
@@ -238,10 +229,10 @@
       max-width: 1020px;
       margin: 0 auto;
       background: var(--bg-surface);
-      border: 2px solid var(--border-emerald);
+      border: 1.5px solid var(--border-emerald);
       border-radius: 20px;
       padding: 12px;
-      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.65);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.65);
     }
 
     .video-topbar {
@@ -250,7 +241,7 @@
       justify-content: space-between;
       padding: 6px 12px 12px;
       font-size: 13px;
-      color: var(--text-muted);
+      color: var(--text-secondary);
       font-weight: 700;
     }
 
@@ -288,18 +279,9 @@
       margin: 0 auto 44px;
     }
 
-    .section-eyebrow {
-      color: var(--emerald-400);
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 8px;
-    }
-
     .section-title {
-      font-size: clamp(26px, 3.5vw, 36px);
-      font-weight: 900;
+      font-size: clamp(26px, 3.4vw, 35px);
+      font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 12px;
     }
@@ -329,23 +311,21 @@
       transform: translateY(-2px);
     }
 
-    .feature-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: rgba(16, 185, 129, 0.14);
-      border: 1px solid var(--border-emerald);
+    .feature-head {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .feature-emoji {
       font-size: 22px;
-      margin-bottom: 16px;
+      line-height: 1;
     }
 
     .feature-card h3 {
       font-size: 18px;
       font-weight: 800;
-      margin-bottom: 8px;
     }
 
     .feature-card p {
@@ -365,24 +345,29 @@
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
       padding: 26px;
-      position: relative;
+    }
+
+    .step-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
     }
 
     .step-num {
       display: inline-block;
-      background: var(--emerald-600);
-      color: #fff;
-      font-weight: 900;
-      font-size: 13px;
-      padding: 4px 12px;
+      background: var(--emerald-700);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 12.5px;
+      padding: 4px 11px;
       border-radius: 999px;
-      margin-bottom: 14px;
+      white-space: nowrap;
     }
 
     .step-card h3 {
       font-size: 18px;
       font-weight: 800;
-      margin-bottom: 8px;
     }
 
     .step-card p {
@@ -409,39 +394,29 @@
     }
 
     .price-card.featured {
-      background: linear-gradient(180deg, rgba(4, 120, 87, 0.26) 0%, var(--bg-surface) 100%);
+      background: var(--bg-card);
       border: 2px solid var(--emerald-400);
-      box-shadow: 0 20px 50px rgba(4, 120, 87, 0.25);
-    }
-
-    .price-badge {
-      display: inline-block;
-      background: rgba(16, 185, 129, 0.18);
-      color: var(--emerald-400);
-      font-size: 12px;
-      font-weight: 800;
-      padding: 4px 11px;
-      border-radius: 999px;
-      margin-bottom: 12px;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
     }
 
     .price-title {
       font-size: 19px;
       font-weight: 800;
-      margin-bottom: 6px;
+      color: var(--emerald-400);
+      margin-bottom: 4px;
     }
 
     .price-amount {
       font-size: 30px;
-      font-weight: 900;
+      font-weight: 800;
       color: #ffffff;
-      margin: 10px 0 4px;
+      margin: 8px 0 4px;
       letter-spacing: -0.02em;
     }
 
     .price-period {
-      font-size: 13px;
-      color: var(--text-muted);
+      font-size: 13.5px;
+      color: var(--text-secondary);
       margin-bottom: 18px;
     }
 
@@ -458,8 +433,16 @@
     .price-list li::before {
       content: "✓ ";
       color: var(--emerald-400);
-      font-weight: 900;
+      font-weight: 800;
       margin-right: 6px;
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9em;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 6px;
+      border-radius: 5px;
     }
 
     /* Footer */
@@ -467,7 +450,7 @@
       border-top: 1px solid var(--border-subtle);
       padding: 40px 0;
       text-align: center;
-      color: var(--text-muted);
+      color: var(--text-secondary);
       font-size: 14px;
     }
 
@@ -508,15 +491,12 @@
   <!-- Hero Section -->
   <section class="hero" id="demo">
     <div class="container">
-      <div class="hero-badge">
-        ⚡ ASISTEN DIGITAL TENAGA KESEHATAN • CKG SEKOLAH &amp; CKG UMUM
-      </div>
       <h1>
-        Bebas Lembur Input Ratusan Data<br />
-        <span>CKG Sekolah &amp; CKG Umum</span> Satu per Satu!
+        Bebas Lembur Input Ratusan Data
+        <span>CKG Sekolah &amp; CKG Umum</span> Satu per&nbsp;Satu
       </h1>
       <p class="hero-sub">
-        Otomatisasi penuh dari <b>Pendaftaran &amp; Konfirmasi Hadir</b>, <b>Kuesioner Skrining Mandiri</b>, hingga <b>Pemeriksaan Fisik Nakes &amp; Rapor WhatsApp</b> 10x lebih cepat di laptop Anda sendiri.
+        Asisten digital otomatis untuk tenaga kesehatan yang menuntaskan <b>Pendaftaran &amp; Konfirmasi Hadir</b>, <b>Kuesioner Skrining Mandiri</b>, hingga <b>Pemeriksaan Fisik Nakes &amp; Rapor WhatsApp</b> 10x lebih cepat di laptop&nbsp;Anda.
       </p>
 
       <div class="hero-actions">
@@ -553,48 +533,59 @@
   <section id="fitur">
     <div class="container">
       <div class="section-header">
-        <div class="section-eyebrow">FITUR UNGGULAN KELAS DUNIA</div>
-        <h2 class="section-title">Dirancang Khusus untuk Kecepatan &amp; Kenyamanan Nakes</h2>
+        <h2 class="section-title">Dirancang Khusus untuk Kecepatan &amp; Kenyamanan Tim&nbsp;Nakes</h2>
         <p class="section-desc">
-          Cocok untuk PJ UKS, Tim Posbindu/PTM, Bidan Desa, Perawat, dan Operator CKG di seluruh Indonesia.
+          Solusi praktis untuk PJ UKS, Tim Posbindu/PTM, Bidan Desa, Perawat, dan Operator CKG di seluruh wilayah&nbsp;Indonesia.
         </p>
       </div>
 
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">🏫</div>
-          <h3>Dual-Program: CKG Sekolah &amp; CKG Umum</h3>
-          <p>Satu klik untuk berpindah antara <b>CKG Sekolah (33 Kolom Anak &amp; Remaja)</b> dan <b>CKG Umum (37 Kolom Dewasa 18–59 th &amp; Lansia ≥60 th)</b> lengkap dengan GDS, Kolesterol &amp; Lingkar Perut.</p>
+          <div class="feature-head">
+            <span class="feature-emoji">🏫</span>
+            <h3>Dual-Program: Sekolah &amp; Umum</h3>
+          </div>
+          <p>Satu klik untuk berpindah antara <b>CKG Sekolah (33 Kolom Anak &amp; Remaja)</b> dan <b>CKG Umum (37 Kolom Dewasa &amp; Lansia)</b> lengkap dengan GDS, Kolesterol &amp; Lingkar&nbsp;Perut.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">✨</div>
-          <h3>Auto-Healer Excel Cerdas</h3>
-          <p>Tidak perlu pusing merapikan Excel secara manual. Sistem otomatis memperbaiki nomor WhatsApp yang kehilangan angka <code>0</code> di depan, tanggal lahir terbalik, dan ejaan kelas.</p>
+          <div class="feature-head">
+            <span class="feature-emoji">✨</span>
+            <h3>Auto-Healer Excel Cerdas</h3>
+          </div>
+          <p>Tidak perlu merapikan Excel secara manual. Sistem otomatis memperbaiki nomor WhatsApp yang kehilangan angka <code>0</code> di depan, tanggal lahir terbalik, dan ejaan&nbsp;kelas.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">🚀</div>
-          <h3>Tuntas 3 Tahap Sekaligus di Balik Layar</h3>
-          <p>Menjalankan Pendaftaran &amp; Kehadiran, Kuesioner Skrining Mandiri, hingga Pemeriksaan Fisik Nakes &amp; Kirim Rapor Kesehatan WhatsApp secara otomatis tanpa mengganggu pekerjaan lain.</p>
+          <div class="feature-head">
+            <span class="feature-emoji">🚀</span>
+            <h3>Tuntas 3 Tahap di Balik Layar</h3>
+          </div>
+          <p>Menjalankan Pendaftaran &amp; Kehadiran, Kuesioner Skrining Mandiri, hingga Pemeriksaan Fisik Nakes &amp; Kirim Rapor Kesehatan WhatsApp tanpa mengganggu pekerjaan&nbsp;lain.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">🔐</div>
-          <h3>Brankas Multi-Akun (1–4 Jalur Paralel)</h3>
-          <p>Simpan hingga 4 akun petugas sekaligus dengan fitur <i>Auto-KeepAlive</i>. Bebas pilih mode 1 Jalur Turbo Stabil atau hingga 4 Jalur Paralel untuk ratusan peserta.</p>
+          <div class="feature-head">
+            <span class="feature-emoji">🔐</span>
+            <h3>Brankas Multi-Akun (1–4 Jalur)</h3>
+          </div>
+          <p>Simpan hingga 4 akun petugas sekaligus dengan fitur <i>Auto-KeepAlive</i>. Bebas pilih mode 1 Jalur Turbo Stabil atau hingga 4 Jalur Paralel untuk ratusan&nbsp;peserta.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">💻</div>
-          <h3>100% Self-Hosted di Laptop Anda</h3>
-          <p>Berjalan langsung di komputer masing-masing petugas. Tidak ada data NIK/pasien yang dikirim ke server pihak ketiga dan bebas risiko pemblokiran IP bersama.</p>
+          <div class="feature-head">
+            <span class="feature-emoji">💻</span>
+            <h3>100% Self-Hosted di Laptop Anda</h3>
+          </div>
+          <p>Berjalan langsung di komputer masing-masing petugas. Tidak ada data NIK/pasien yang dikirim ke server pihak ketiga dan bebas risiko pemblokiran IP&nbsp;bersama.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>Unduh Rekap Excel &amp; Filter Cepat</h3>
-          <p>Pantau progres secara langsung dan unduh laporan rekap hasil pemeriksaan (lengkap dengan Nomor Tiket, Status Rapor WA, dan Kesimpulan Medis/Tatalaksana).</p>
+          <div class="feature-head">
+            <span class="feature-emoji">📊</span>
+            <h3>Unduh Rekap Excel &amp; Filter Cepat</h3>
+          </div>
+          <p>Pantau progres secara langsung dan unduh laporan rekap hasil pemeriksaan lengkap dengan Nomor Tiket, Status Rapor WA, dan Kesimpulan&nbsp;Medis.</p>
         </div>
       </div>
     </div>
@@ -604,28 +595,33 @@
   <section id="cara-pakai" style="background: rgba(13, 27, 46, 0.55);">
     <div class="container">
       <div class="section-header">
-        <div class="section-eyebrow">INSTALASI SUPER MUDAH</div>
-        <h2 class="section-title">Siap Digunakan dalam 3 Langkah Sederhana</h2>
-        <p class="section-desc">Tidak perlu keahlian teknis atau sewa server—cukup unduh dan klik 2 kali di laptop Anda.</p>
+        <h2 class="section-title">Siap Digunakan dalam 3 Langkah&nbsp;Sederhana</h2>
+        <p class="section-desc">Tidak perlu keahlian teknis atau sewa server—cukup unduh dan klik 2 kali di laptop&nbsp;Anda.</p>
       </div>
 
       <div class="steps-grid">
         <div class="step-card">
-          <span class="step-num">LANGKAH 1</span>
-          <h3>Unduh &amp; Ekstrak File ZIP</h3>
-          <p>Klik tombol <b>Unduh Aplikasi Gratis</b> di halaman ini, lalu ekstrak folder <code>CKG_Terpadu_V3.5</code> di laptop Windows atau MacBook Anda.</p>
+          <div class="step-head">
+            <span class="step-num">LANGKAH 1</span>
+            <h3>Unduh &amp; Ekstrak File ZIP</h3>
+          </div>
+          <p>Klik tombol <b>Unduh Aplikasi Gratis</b> di halaman ini, lalu ekstrak folder <code>CKG_Terpadu_V3.5</code> di laptop Windows atau MacBook&nbsp;Anda.</p>
         </div>
 
         <div class="step-card">
-          <span class="step-num">LANGKAH 2</span>
-          <h3>Klik 2x File Peluncur</h3>
-          <p>Di Windows, klik 2x <code>Instal_dan_Jalankan_Windows.bat</code>. Di Mac, klik 2x <code>Jalankan_CKG_Terpadu_Mac.command</code>. Dashboard langsung terbuka otomatis!</p>
+          <div class="step-head">
+            <span class="step-num">LANGKAH 2</span>
+            <h3>Klik 2x File Peluncur</h3>
+          </div>
+          <p>Di Windows, klik 2x <code>Instal_dan_Jalankan_Windows.bat</code>. Di Mac, klik 2x <code>Jalankan_CKG_Terpadu_Mac.command</code> hingga dashboard&nbsp;terbuka.</p>
         </div>
 
         <div class="step-card">
-          <span class="step-num">LANGKAH 3</span>
-          <h3>Pilih Excel &amp; Klik Mulai</h3>
-          <p>Login sekali di menu <b>Akun Petugas</b>, unggah file Excel peserta CKG Sekolah atau CKG Umum Anda, lalu klik <b>Mulai Pelayanan Otomatis</b>.</p>
+          <div class="step-head">
+            <span class="step-num">LANGKAH 3</span>
+            <h3>Pilih Excel &amp; Klik Mulai</h3>
+          </div>
+          <p>Login sekali di menu <b>Akun Petugas</b>, unggah file Excel peserta CKG Sekolah atau CKG Umum Anda, lalu klik tombol <b>Mulai Pelayanan&nbsp;Otomatis</b>.</p>
         </div>
       </div>
     </div>
@@ -635,10 +631,9 @@
   <section id="paket">
     <div class="container">
       <div class="section-header">
-        <div class="section-eyebrow">HARGA TERJANGKAU &amp; BISA PATUNGAN TIM</div>
-        <h2 class="section-title">Pilih Paket Sesuai Kebutuhan Pelayanan Anda</h2>
+        <h2 class="section-title">Pilihan Paket Hemat &amp; Patungan Tim&nbsp;Nakes</h2>
         <p class="section-desc">
-          Coba gratis 30 peserta pertama! Aktivasi kuota tambahan sangat praktis via <b>QRIS (GoPay, OVO, Dana, ShopeePay, M-Banking)</b> atau <b>Transfer Bank</b>.
+          Coba gratis 30 peserta pertama! Aktivasi kuota tambahan sangat praktis via <b>QRIS (GoPay, OVO, Dana, ShopeePay, M-Banking)</b> atau <b>Transfer&nbsp;Bank</b>.
         </p>
       </div>
 
@@ -646,8 +641,7 @@
         <!-- Trial -->
         <div class="price-card">
           <div>
-            <span class="price-badge">🎁 UJI COBA LANGSUNG</span>
-            <div class="price-title">Starter Trial</div>
+            <div class="price-title">🎁 Starter Trial</div>
             <div class="price-amount">Gratis</div>
             <div class="price-period">30 Peserta • Masa Aktif 14 Hari</div>
             <ul class="price-list">
@@ -665,8 +659,7 @@
         <!-- Bulanan -->
         <div class="price-card">
           <div>
-            <span class="price-badge">⚡ ECERAN / 1 KEGIATAN</span>
-            <div class="price-title">Paket Hemat 1 Bulan</div>
+            <div class="price-title">⚡ Paket Hemat 1 Bulan</div>
             <div class="price-amount">300 Peserta</div>
             <div class="price-period">Masa Aktif 30 Hari • 2 Jalur Paralel</div>
             <ul class="price-list">
@@ -684,8 +677,7 @@
         <!-- Semester (Featured) -->
         <div class="price-card featured">
           <div>
-            <span class="price-badge">⭐ PALING LARIS • PATUNGAN TIM</span>
-            <div class="price-title">Paket Pro Semester</div>
+            <div class="price-title">⭐ Paket Pro Semester</div>
             <div class="price-amount">3.000 Peserta</div>
             <div class="price-period">Masa Aktif 6 Bulan (180 Hari) • 3 Jalur</div>
             <ul class="price-list">
@@ -703,8 +695,7 @@
         <!-- Tahunan -->
         <div class="price-card">
           <div>
-            <span class="price-badge">🏥 KAPASITAS PENUH 1 TAHUN</span>
-            <div class="price-title">Paket Pro Tahunan</div>
+            <div class="price-title">🏥 Paket Pro Tahunan</div>
             <div class="price-amount">50.000 Peserta</div>
             <div class="price-period">Masa Aktif 1 Tahun (365 Hari) • 4 Jalur</div>
             <ul class="price-list">
@@ -725,15 +716,14 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p style="font-weight: 700; color: var(--text-secondary); margin-bottom: 6px;">
-        🛡️ CKG Terpadu V3.5 — Asisten Produktivitas Digital Tenaga Kesehatan Indonesia
+      <p style="font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">
+        🛡️ CKG Terpadu V3.5 — Asisten Produktivitas Digital Tenaga Kesehatan&nbsp;Indonesia
       </p>
       <p>
-        Informasi &amp; Aktivasi Lisensi (QRIS / Transfer Bank): <a href="https://wa.me/628111017195" style="color: var(--emerald-400); text-decoration: none; font-weight: 700;">WhatsApp 0811-1017-195</a>
+        Informasi &amp; Aktivasi Lisensi (QRIS / Transfer Bank): <a href="https://wa.me/628111017195" style="color: var(--emerald-400); text-decoration: none; font-weight: 700;">WhatsApp&nbsp;0811-1017-195</a>
       </p>
     </div>
   </footer>
 
 </body>
 </html>
-
