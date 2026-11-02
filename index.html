@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CKG Terpadu V3.5 — Asisten Digital Otomatisasi CKG Sekolah &amp; CKG Umum</title>
+  <meta name="description" content="Bebas lembur input ratusan data CKG Sekolah (33 Kolom) &amp; CKG Umum Dewasa/Lansia (37 Kolom). Otomatisasi Pendaftaran, Skrining Mandiri, Pemeriksaan Fisik Nakes &amp; Rapor WA. Coba Gratis 30 Peserta!" />
+  <meta property="og:title" content="CKG Terpadu V3.5 — Bebas Lembur Input CKG Sekolah &amp; Umum" />
+  <meta property="og:description" content="Asisten Digital Nakes untuk CKG Sekolah (33 Kolom) &amp; CKG Umum (37 Kolom). 100% aman di laptop sendiri, coba gratis 30 peserta, aktivasi praktis via QRIS." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-base: #07101e;
+      --bg-surface: #0d1b2e;
+      --bg-card: #12243d;
+      --bg-elevated: #172e4d;
+      --border-subtle: rgba(148, 163, 184, 0.16);
+      --border-emerald: rgba(16, 185, 129, 0.45);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --emerald-500: #10b981;
+      --emerald-400: #34d399;
+      --emerald-600: #059669;
+      --emerald-700: #047857;
+      --amber-400: #fbbf24;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 16, 30, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: rgba(16, 185, 129, 0.16);
+      border: 1.5px solid var(--emerald-400);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-version {
+      background: rgba(16, 185, 129, 0.18);
+      color: var(--emerald-400);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-left: 6px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--emerald-400);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 13px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      border: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--emerald-600);
+      color: #ffffff;
+      box-shadow: 0 10px 28px rgba(5, 150, 105, 0.38);
+    }
+
+    .btn-primary:hover {
+      background: var(--emerald-500);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1.5px solid var(--border-emerald);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-elevated);
+    }
+
+    .btn-sm {
+      padding: 9px 16px;
+      font-size: 13.5px;
+      border-radius: 10px;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 64px 0 56px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.16), transparent 62%);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid var(--border-emerald);
+      color: var(--emerald-400);
+      font-size: 13.5px;
+      font-weight: 800;
+      padding: 7px 18px;
+      border-radius: 999px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      max-width: 920px;
+      margin: 0 auto 18px;
+    }
+
+    .hero h1 span {
+      color: var(--emerald-400);
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--text-secondary);
+      max-width: 780px;
+      margin: 0 auto 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 42px;
+    }
+
+    /* Video Showcase */
+    .video-frame {
+      max-width: 1020px;
+      margin: 0 auto;
+      background: var(--bg-surface);
+      border: 2px solid var(--border-emerald);
+      border-radius: 20px;
+      padding: 12px;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.65);
+    }
+
+    .video-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 12px 12px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .video-dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .video-dots span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #334155;
+    }
+
+    .video-dots span:nth-child(1) { background: #ef4444; }
+    .video-dots span:nth-child(2) { background: #f59e0b; }
+    .video-dots span:nth-child(3) { background: #10b981; }
+
+    .video-frame video {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      background: #040b14;
+    }
+
+    /* Section Header */
+    section {
+      padding: 68px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 44px;
+    }
+
+    .section-eyebrow {
+      color: var(--emerald-400);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      color: var(--text-secondary);
+      font-size: 16px;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 26px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .feature-card:hover {
+      border-color: var(--border-emerald);
+      transform: translateY(-2px);
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid var(--border-emerald);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      color: var(--text-secondary);
+      font-size: 14.5px;
+    }
+
+    /* Steps */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 26px;
+      position: relative;
+    }
+
+    .step-num {
+      display: inline-block;
+      background: var(--emerald-600);
+      color: #fff;
+      font-weight: 900;
+      font-size: 13px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    .step-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .step-card p {
+      color: var(--text-secondary);
+      font-size: 14.5px;
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .price-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 26px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .price-card.featured {
+      background: linear-gradient(180deg, rgba(4, 120, 87, 0.26) 0%, var(--bg-surface) 100%);
+      border: 2px solid var(--emerald-400);
+      box-shadow: 0 20px 50px rgba(4, 120, 87, 0.25);
+    }
+
+    .price-badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.18);
+      color: var(--emerald-400);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 11px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .price-title {
+      font-size: 19px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .price-amount {
+      font-size: 30px;
+      font-weight: 900;
+      color: #ffffff;
+      margin: 10px 0 4px;
+      letter-spacing: -0.02em;
+    }
+
+    .price-period {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .price-list {
+      list-style: none;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .price-list li::before {
+      content: "✓ ";
+      color: var(--emerald-400);
+      font-weight: 900;
+      margin-right: 6px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .hero {
+        padding: 40px 0 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="#" class="brand">
+        <div class="brand-icon">🛡️</div>
+        <div>
+          <span class="brand-title">CKG Terpadu</span>
+          <span class="brand-version">V3.5</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#demo">Video Demo</a>
+        <a href="#fitur">Fitur Unggulan</a>
+        <a href="#cara-pakai">Cara Pakai</a>
+        <a href="#paket">Paket &amp; QRIS</a>
+      </nav>
+      <a href="https://wa.me/628111017195?text=Halo%20Admin%20CKG%20Terpadu%20V3.5%2C%20saya%20ingin%20coba%20Trial%20Gratis%2030%20Peserta%20%2F%20info%20aktivasi%20QRIS." target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+        📲 Hubungi WA Admin
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="demo">
+    <div class="container">
+      <div class="hero-badge">
+        ⚡ ASISTEN DIGITAL TENAGA KESEHATAN • CKG SEKOLAH &amp; CKG UMUM
+      </div>
+      <h1>
+        Bebas Lembur Input Ratusan Data<br />
+        <span>CKG Sekolah &amp; CKG Umum</span> Satu per Satu!
+      </h1>
+      <p class="hero-sub">
+        Otomatisasi penuh dari <b>Pendaftaran &amp; Konfirmasi Hadir</b>, <b>Kuesioner Skrining Mandiri</b>, hingga <b>Pemeriksaan Fisik Nakes &amp; Rapor WhatsApp</b> 10x lebih cepat di laptop Anda sendiri.
+      </p>
+
+      <div class="hero-actions">
+        <a href="./CKG_Terpadu_V3.5_Puskesmas_Client_Installer.zip" download class="btn btn-primary">
+          ⬇️ Unduh Aplikasi Gratis (Trial 30 Peserta — Windows &amp; Mac)
+        </a>
+        <a href="https://wa.me/628111017195?text=Halo%20Admin%20CKG%20Terpadu%20V3.5%2C%20saya%20ingin%20tanya%20paket%20lisensi%20(QRIS%20%2F%20Transfer%20Bank)." target="_blank" rel="noopener" class="btn btn-secondary">
+          💬 Pesan / Aktivasi via WhatsApp (0811-1017-195)
+        </a>
+      </div>
+
+      <div class="hero-meta">
+        <span>✅ Mendukung Windows 10/11 &amp; macOS</span>
+        <span>🔒 100% Self-Hosted (Data Aman di Laptop Anda)</span>
+        <span>💳 Pembayaran Mudah via QRIS / Transfer Bank</span>
+      </div>
+
+      <!-- 60-Second Video Player -->
+      <div class="video-frame">
+        <div class="video-topbar">
+          <div class="video-dots"><span></span><span></span><span></span></div>
+          <div>🎬 Video Demo 60 Detik — CKG Terpadu V3.5 (Nyalakan Suara 🔊)</div>
+          <div>1080p HD</div>
+        </div>
+        <video controls preload="metadata" playsinline>
+          <source src="./Video_Demo_CKG_Terpadu_V3.5_60s.mp4" type="video/mp4" />
+          Browser Anda tidak mendukung pemutar video HTML5.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Features -->
+  <section id="fitur">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">FITUR UNGGULAN KELAS DUNIA</div>
+        <h2 class="section-title">Dirancang Khusus untuk Kecepatan &amp; Kenyamanan Nakes</h2>
+        <p class="section-desc">
+          Cocok untuk PJ UKS, Tim Posbindu/PTM, Bidan Desa, Perawat, dan Operator CKG di seluruh Indonesia.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🏫</div>
+          <h3>Dual-Program: CKG Sekolah &amp; CKG Umum</h3>
+          <p>Satu klik untuk berpindah antara <b>CKG Sekolah (33 Kolom Anak &amp; Remaja)</b> dan <b>CKG Umum (37 Kolom Dewasa 18–59 th &amp; Lansia ≥60 th)</b> lengkap dengan GDS, Kolesterol &amp; Lingkar Perut.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">✨</div>
+          <h3>Auto-Healer Excel Cerdas</h3>
+          <p>Tidak perlu pusing merapikan Excel secara manual. Sistem otomatis memperbaiki nomor WhatsApp yang kehilangan angka <code>0</code> di depan, tanggal lahir terbalik, dan ejaan kelas.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3>Tuntas 3 Tahap Sekaligus di Balik Layar</h3>
+          <p>Menjalankan Pendaftaran &amp; Kehadiran, Kuesioner Skrining Mandiri, hingga Pemeriksaan Fisik Nakes &amp; Kirim Rapor Kesehatan WhatsApp secara otomatis tanpa mengganggu pekerjaan lain.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔐</div>
+          <h3>Brankas Multi-Akun (1–4 Jalur Paralel)</h3>
+          <p>Simpan hingga 4 akun petugas sekaligus dengan fitur <i>Auto-KeepAlive</i>. Bebas pilih mode 1 Jalur Turbo Stabil atau hingga 4 Jalur Paralel untuk ratusan peserta.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💻</div>
+          <h3>100% Self-Hosted di Laptop Anda</h3>
+          <p>Berjalan langsung di komputer masing-masing petugas. Tidak ada data NIK/pasien yang dikirim ke server pihak ketiga dan bebas risiko pemblokiran IP bersama.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Unduh Rekap Excel &amp; Filter Cepat</h3>
+          <p>Pantau progres secara langsung dan unduh laporan rekap hasil pemeriksaan (lengkap dengan Nomor Tiket, Status Rapor WA, dan Kesimpulan Medis/Tatalaksana).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="cara-pakai" style="background: rgba(13, 27, 46, 0.55);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">INSTALASI SUPER MUDAH</div>
+        <h2 class="section-title">Siap Digunakan dalam 3 Langkah Sederhana</h2>
+        <p class="section-desc">Tidak perlu keahlian teknis atau sewa server—cukup unduh dan klik 2 kali di laptop Anda.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-num">LANGKAH 1</span>
+          <h3>Unduh &amp; Ekstrak File ZIP</h3>
+          <p>Klik tombol <b>Unduh Aplikasi Gratis</b> di halaman ini, lalu ekstrak folder <code>CKG_Terpadu_V3.5</code> di laptop Windows atau MacBook Anda.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">LANGKAH 2</span>
+          <h3>Klik 2x File Peluncur</h3>
+          <p>Di Windows, klik 2x <code>Instal_dan_Jalankan_Windows.bat</code>. Di Mac, klik 2x <code>Jalankan_CKG_Terpadu_Mac.command</code>. Dashboard langsung terbuka otomatis!</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">LANGKAH 3</span>
+          <h3>Pilih Excel &amp; Klik Mulai</h3>
+          <p>Login sekali di menu <b>Akun Petugas</b>, unggah file Excel peserta CKG Sekolah atau CKG Umum Anda, lalu klik <b>Mulai Pelayanan Otomatis</b>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing & QRIS -->
+  <section id="paket">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">HARGA TERJANGKAU &amp; BISA PATUNGAN TIM</div>
+        <h2 class="section-title">Pilih Paket Sesuai Kebutuhan Pelayanan Anda</h2>
+        <p class="section-desc">
+          Coba gratis 30 peserta pertama! Aktivasi kuota tambahan sangat praktis via <b>QRIS (GoPay, OVO, Dana, ShopeePay, M-Banking)</b> atau <b>Transfer Bank</b>.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Trial -->
+        <div class="price-card">
+          <div>
+            <span class="price-badge">🎁 UJI COBA LANGSUNG</span>
+            <div class="price-title">Starter Trial</div>
+            <div class="price-amount">Gratis</div>
+            <div class="price-period">30 Peserta • Masa Aktif 14 Hari</div>
+            <ul class="price-list">
+              <li>Kuota 30 Peserta (Sekolah &amp; Umum)</li>
+              <li>Auto-Healer Nomor WA &amp; Tgl Lahir</li>
+              <li>1 Jalur Petugas Turbo Stabil</li>
+              <li>Unduh Rekap Hasil Excel</li>
+            </ul>
+          </div>
+          <a href="./CKG_Terpadu_V3.5_Puskesmas_Client_Installer.zip" download class="btn btn-secondary" style="width:100%;">
+            ⬇️ Unduh &amp; Coba Gratis
+          </a>
+        </div>
+
+        <!-- Bulanan -->
+        <div class="price-card">
+          <div>
+            <span class="price-badge">⚡ ECERAN / 1 KEGIATAN</span>
+            <div class="price-title">Paket Hemat 1 Bulan</div>
+            <div class="price-amount">300 Peserta</div>
+            <div class="price-period">Masa Aktif 30 Hari • 2 Jalur Paralel</div>
+            <ul class="price-list">
+              <li>Mendukung CKG Sekolah &amp; CKG Umum</li>
+              <li>Bisa 2 Akun Petugas Paralel</li>
+              <li>Pas untuk 1 Sekolah / 1 Posbindu</li>
+              <li>Aktivasi Instan via QRIS / Transfer</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/628111017195?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20*Paket%20Hemat%201%20Bulan%20(300%20Peserta)*%20CKG%20Terpadu%20V3.5%20via%20QRIS." target="_blank" rel="noopener" class="btn btn-secondary" style="width:100%;">
+            📲 Pesan Paket Bulanan
+          </a>
+        </div>
+
+        <!-- Semester (Featured) -->
+        <div class="price-card featured">
+          <div>
+            <span class="price-badge">⭐ PALING LARIS • PATUNGAN TIM</span>
+            <div class="price-title">Paket Pro Semester</div>
+            <div class="price-amount">3.000 Peserta</div>
+            <div class="price-period">Masa Aktif 6 Bulan (180 Hari) • 3 Jalur</div>
+            <ul class="price-list">
+              <li>Pilihan CKG Sekolah atau CKG Umum</li>
+              <li>Hingga 3 Akun Petugas Paralel</li>
+              <li>Cocok untuk Patungan Tim UKS / PTM</li>
+              <li>Prioritas Bantuan WhatsApp</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/628111017195?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20*Paket%20Pro%20Semester%20(3.000%20Peserta)*%20CKG%20Terpadu%20V3.5%20via%20QRIS%20%2F%20Transfer." target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;">
+            📲 Pesan Paket Semester
+          </a>
+        </div>
+
+        <!-- Tahunan -->
+        <div class="price-card">
+          <div>
+            <span class="price-badge">🏥 KAPASITAS PENUH 1 TAHUN</span>
+            <div class="price-title">Paket Pro Tahunan</div>
+            <div class="price-amount">50.000 Peserta</div>
+            <div class="price-period">Masa Aktif 1 Tahun (365 Hari) • 4 Jalur</div>
+            <ul class="price-list">
+              <li>Semua Program (CKG Sekolah + Umum)</li>
+              <li>4 Akun Petugas Paralel Kecepatan Penuh</li>
+              <li>Dilengkapi Bukti Nota Pembayaran</li>
+              <li>Dukungan Update Format Terbaru</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/628111017195?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20*Paket%20Pro%20Tahunan%20(50.000%20Peserta)*%20CKG%20Terpadu%20V3.5." target="_blank" rel="noopener" class="btn btn-secondary" style="width:100%;">
+            📲 Pesan Paket Tahunan
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p style="font-weight: 700; color: var(--text-secondary); margin-bottom: 6px;">
+        🛡️ CKG Terpadu V3.5 — Asisten Produktivitas Digital Tenaga Kesehatan Indonesia
+      </p>
+      <p>
+        Informasi &amp; Aktivasi Lisensi (QRIS / Transfer Bank): <a href="https://wa.me/628111017195" style="color: var(--emerald-400); text-decoration: none; font-weight: 700;">WhatsApp 0811-1017-195</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
+
