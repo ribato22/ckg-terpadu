@@ -321,9 +321,12 @@
       margin-bottom: 12px;
     }
 
-    .feature-emoji {
-      font-size: 22px;
-      line-height: 1;
+    .feature-icon-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--emerald-400);
+      flex-shrink: 0;
     }
 
     .feature-card h3 {
@@ -465,6 +468,65 @@
       border-radius: 5px;
     }
 
+    /* FAQ Accordion */
+    .faq-list {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 18px 22px;
+      transition: border-color 0.2s ease;
+    }
+
+    .faq-item[open] {
+      border-color: var(--border-emerald);
+      background: var(--bg-card);
+    }
+
+    .faq-item summary {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--emerald-400);
+      line-height: 1;
+    }
+
+    .faq-item[open] summary::after {
+      content: "−";
+    }
+
+    .faq-body {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 14.5px;
+      line-height: 1.65;
+    }
+
     /* Footer */
     footer {
       border-top: 1px solid var(--border-subtle);
@@ -481,6 +543,27 @@
       font-weight: 700;
       color: var(--text-primary);
       margin-bottom: 8px;
+    }
+
+    ::selection {
+      background: rgba(16, 185, 129, 0.28);
+      color: #ffffff;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--emerald-400);
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
 
     @media (max-width: 768px) {
@@ -519,11 +602,12 @@
           <span class="brand-version">V3.5</span>
         </div>
       </a>
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Navigasi Utama">
         <a href="#demo">Video Demo</a>
         <a href="#fitur">Fitur Unggulan</a>
         <a href="#cara-pakai">Cara Pakai</a>
         <a href="#paket">Paket &amp; Harga</a>
+        <a href="#faq">FAQ</a>
       </nav>
       <a href="https://wa.me/628111017195?text=Halo%20Admin%20CKG%20Terpadu%20V3.5%2C%20saya%20ingin%20coba%20Trial%20Gratis%2030%20Peserta%20%2F%20info%20aktivasi%20QRIS." target="_blank" rel="noopener" class="btn btn-primary btn-sm">
         📲 Hubungi WA Admin
@@ -585,7 +669,9 @@
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-head">
-            <span class="feature-emoji">🏫</span>
+            <span class="feature-icon-box" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h1"/><path d="M14 9h1"/><path d="M9 13h1"/><path d="M14 13h1"/><path d="M10 21v-4h4v4"/></svg>
+            </span>
             <h3>Dual-Program: Sekolah &amp; Umum</h3>
           </div>
           <p>Satu klik untuk berpindah antara <b>CKG Sekolah (33 Kolom Anak &amp; Remaja)</b> dan <b>CKG Umum (37 Kolom Dewasa &amp; Lansia)</b> lengkap dengan GDS, Kolesterol &amp; Lingkar&nbsp;Perut.</p>
@@ -593,7 +679,9 @@
 
         <div class="feature-card">
           <div class="feature-head">
-            <span class="feature-emoji">✨</span>
+            <span class="feature-icon-box" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg>
+            </span>
             <h3>Auto-Healer Excel Cerdas</h3>
           </div>
           <p>Tidak perlu merapikan Excel secara manual. Sistem otomatis memperbaiki nomor WhatsApp yang kehilangan angka <code>0</code> di depan, tanggal lahir terbalik, dan ejaan&nbsp;kelas.</p>
@@ -601,7 +689,9 @@
 
         <div class="feature-card">
           <div class="feature-head">
-            <span class="feature-emoji">🚀</span>
+            <span class="feature-icon-box" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </span>
             <h3>Tuntas 3 Tahap di Balik Layar</h3>
           </div>
           <p>Menjalankan Pendaftaran &amp; Kehadiran, Kuesioner Skrining Mandiri, hingga Pemeriksaan Fisik Nakes &amp; Kirim Rapor Kesehatan WhatsApp tanpa mengganggu pekerjaan&nbsp;lain.</p>
@@ -609,7 +699,9 @@
 
         <div class="feature-card">
           <div class="feature-head">
-            <span class="feature-emoji">🔐</span>
+            <span class="feature-icon-box" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </span>
             <h3>Brankas Multi-Akun (1–4 Jalur)</h3>
           </div>
           <p>Simpan hingga 4 akun petugas sekaligus dengan fitur <i>Auto-KeepAlive</i>. Bebas pilih mode 1 Jalur Turbo Stabil atau hingga 4 Jalur Paralel untuk ratusan&nbsp;peserta.</p>
@@ -617,7 +709,9 @@
 
         <div class="feature-card">
           <div class="feature-head">
-            <span class="feature-emoji">💻</span>
+            <span class="feature-icon-box" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </span>
             <h3>100% Self-Hosted di Laptop Anda</h3>
           </div>
           <p>Berjalan langsung di komputer masing-masing petugas. Tidak ada data NIK/pasien yang dikirim ke server pihak ketiga dan bebas risiko pemblokiran IP&nbsp;bersama.</p>
@@ -625,7 +719,9 @@
 
         <div class="feature-card">
           <div class="feature-head">
-            <span class="feature-emoji">📊</span>
+            <span class="feature-icon-box" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </span>
             <h3>Unduh Rekap Excel &amp; Filter Cepat</h3>
           </div>
           <p>Pantau progres secara langsung dan unduh laporan rekap hasil pemeriksaan lengkap dengan Nomor Tiket, Status Rapor WA, dan Kesimpulan&nbsp;Medis.</p>
@@ -760,6 +856,48 @@
             📲 Pesan Paket Tahunan
           </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" style="background: rgba(13, 27, 46, 0.55);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Pertanyaan Umum Tenaga&nbsp;Kesehatan</h2>
+        <p class="section-desc">
+          Jawaban singkat seputar keamanan akun Kemenkes, cara kerja aplikasi di laptop, dan aktivasi kuota via&nbsp;QRIS.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>1. Apakah akun SATUSEHAT Indonesiaku &amp; data NIK peserta aman?</summary>
+          <div class="faq-body">
+            <b>100% Aman &amp; Privat.</b> Aplikasi CKG Terpadu V3.5 berjalan secara lokal (<i>Self-Hosted</i>) langsung di laptop Windows atau MacBook Anda. Tidak ada password akun maupun data NIK peserta yang dikirim ke server pihak ketiga.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>2. Bagaimana cara pemesanan &amp; aktivasi paket via QRIS / Transfer Bank?</summary>
+          <div class="faq-body">
+            Sangat praktis! Setelah mengunduh aplikasi, buka menu <b>Puskesmas Aktif</b> di pojok kanan atas dashboard, lalu klik tombol <b>Pesan via WhatsApp (0811-1017-195)</b>. Anda dapat membayar via <b>QRIS (GoPay, DANA, OVO, ShopeePay, M-Banking)</b> atau Transfer Bank, dan kode lisensi langsung dikirimkan dalam 1 menit.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>3. Apakah kuota terpotong jika internet Puskesmas sempat terputus di tengah jalan?</summary>
+          <div class="faq-body">
+            <b>Tidak terpotong.</b> Sistem dilengkapi perlindungan kuota cerdas (<i>Atomic Quota Guard</i>) yang hanya menghitung peserta apabila proses pencatatan benar-benar tuntas. Peserta yang gagal atau diulangi tidak memotong kuota Anda.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>4. Apakah bisa patungan bersama rekan satu tim UKS / Posbindu?</summary>
+          <div class="faq-body">
+            <b>Sangat bisa!</b> Mayoritas tim Nakes memilih <b>Paket Pro Semester (Rp 249.000 untuk 3.000 peserta / 6 bulan)</b> secara patungan 3–5 petugas (hanya ~Rp 49.000/orang) dan dapat menghubungkan hingga 3 akun petugas secara paralel.
+          </div>
+        </details>
       </div>
     </div>
   </section>
