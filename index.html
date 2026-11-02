@@ -8,6 +8,7 @@
   <meta property="og:title" content="CKG Terpadu V3.5 — Bebas Lembur Input CKG Sekolah &amp; Umum" />
   <meta property="og:description" content="Asisten Digital Nakes untuk CKG Sekolah (33 Kolom) &amp; CKG Umum (37 Kolom). 100% aman di laptop sendiri, coba gratis 30 peserta, aktivasi praktis via QRIS." />
   <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%230d9488'/%3E%3Cstop offset='100%25' stop-color='%2310b981'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='40' height='40' rx='11' fill='url(%23g)'/%3E%3Cpath d='M20 7L9 11.5v8.2c0 7.4 4.7 14 11 16.3 6.3-2.3 11-8.9 11-16.3v-8.2L20 7z' fill='rgba(255,255,255,0.18)' stroke='%23ffffff' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M13.5 20.5h3.2l2.1-4.5 2.6 8.5 2.1-4h3' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
@@ -86,15 +87,15 @@
     }
 
     .brand-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: var(--bg-card);
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: rgba(16, 185, 129, 0.12);
       border: 1.5px solid var(--border-emerald);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 19px;
+      flex-shrink: 0;
     }
 
     .brand-title {
@@ -135,13 +136,15 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
       font-family: inherit;
       font-weight: 700;
-      font-size: 15px;
-      padding: 13px 24px;
+      font-size: 14.5px;
+      padding: 12px 20px;
       border-radius: 12px;
       text-decoration: none;
+      text-align: center;
+      white-space: nowrap;
       cursor: pointer;
       transition: transform 0.15s ease, background 0.15s ease;
       border: none;
@@ -387,7 +390,7 @@
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
       border-radius: 18px;
-      padding: 26px 24px;
+      padding: 26px 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -400,22 +403,30 @@
     }
 
     .price-title {
-      font-size: 19px;
+      font-size: 18px;
       font-weight: 800;
       color: var(--emerald-400);
       margin-bottom: 4px;
     }
 
     .price-amount {
-      font-size: 30px;
+      font-size: 31px;
       font-weight: 800;
       color: #ffffff;
       margin: 8px 0 4px;
       letter-spacing: -0.02em;
     }
 
-    .price-period {
+    .price-quota {
+      display: inline-block;
       font-size: 13.5px;
+      font-weight: 700;
+      color: var(--emerald-400);
+      margin-bottom: 4px;
+    }
+
+    .price-period {
+      font-size: 13px;
       color: var(--text-secondary);
       margin-bottom: 18px;
     }
@@ -454,12 +465,24 @@
       font-size: 14px;
     }
 
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
     @media (max-width: 768px) {
       .nav-links {
         display: none;
       }
       .hero {
         padding: 40px 0 36px;
+      }
+      .btn {
+        white-space: normal;
       }
     }
   </style>
@@ -470,7 +493,18 @@
   <header class="navbar">
     <div class="container navbar-inner">
       <a href="#" class="brand">
-        <div class="brand-icon">🛡️</div>
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="navShieldGrad" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#0D9488"/>
+                <stop offset="100%" stop-color="#10B981"/>
+              </linearGradient>
+            </defs>
+            <path d="M20 4.5L7.5 9.8V19.2C7.5 27.9 12.8 35.6 20 38.2C27.2 35.6 32.5 27.9 32.5 19.2V9.8L20 4.5Z" fill="url(#navShieldGrad)"/>
+            <path d="M12.5 20.5H16.2L18.5 15L21.5 25.5L23.8 20.5H27.5" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <div>
           <span class="brand-title">CKG Terpadu</span>
           <span class="brand-version">V3.5</span>
@@ -480,7 +514,7 @@
         <a href="#demo">Video Demo</a>
         <a href="#fitur">Fitur Unggulan</a>
         <a href="#cara-pakai">Cara Pakai</a>
-        <a href="#paket">Paket &amp; QRIS</a>
+        <a href="#paket">Paket &amp; Harga</a>
       </nav>
       <a href="https://wa.me/628111017195?text=Halo%20Admin%20CKG%20Terpadu%20V3.5%2C%20saya%20ingin%20coba%20Trial%20Gratis%2030%20Peserta%20%2F%20info%20aktivasi%20QRIS." target="_blank" rel="noopener" class="btn btn-primary btn-sm">
         📲 Hubungi WA Admin
@@ -642,8 +676,9 @@
         <div class="price-card">
           <div>
             <div class="price-title">🎁 Starter Trial</div>
-            <div class="price-amount">Gratis</div>
-            <div class="price-period">30 Peserta • Masa Aktif 14 Hari</div>
+            <div class="price-amount">Rp 0</div>
+            <div class="price-quota">Kuota 30 Peserta Gratis</div>
+            <div class="price-period">Masa Aktif 14 Hari • 1 Jalur</div>
             <ul class="price-list">
               <li>Kuota 30 Peserta (Sekolah &amp; Umum)</li>
               <li>Auto-Healer Nomor WA &amp; Tgl Lahir</li>
@@ -660,7 +695,8 @@
         <div class="price-card">
           <div>
             <div class="price-title">⚡ Paket Hemat 1 Bulan</div>
-            <div class="price-amount">300 Peserta</div>
+            <div class="price-amount">Rp 149.000</div>
+            <div class="price-quota">Kuota 300 Peserta</div>
             <div class="price-period">Masa Aktif 30 Hari • 2 Jalur Paralel</div>
             <ul class="price-list">
               <li>Mendukung CKG Sekolah &amp; CKG Umum</li>
@@ -669,7 +705,7 @@
               <li>Aktivasi Instan via QRIS / Transfer</li>
             </ul>
           </div>
-          <a href="https://wa.me/628111017195?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20*Paket%20Hemat%201%20Bulan%20(300%20Peserta)*%20CKG%20Terpadu%20V3.5%20via%20QRIS." target="_blank" rel="noopener" class="btn btn-secondary" style="width:100%;">
+          <a href="https://wa.me/628111017195?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20*Paket%20Hemat%201%20Bulan%20(300%20Peserta%20-%20Rp%20149.000)*%20CKG%20Terpadu%20V3.5%20via%20QRIS." target="_blank" rel="noopener" class="btn btn-secondary" style="width:100%;">
             📲 Pesan Paket Bulanan
           </a>
         </div>
@@ -678,16 +714,17 @@
         <div class="price-card featured">
           <div>
             <div class="price-title">⭐ Paket Pro Semester</div>
-            <div class="price-amount">3.000 Peserta</div>
-            <div class="price-period">Masa Aktif 6 Bulan (180 Hari) • 3 Jalur</div>
+            <div class="price-amount">Rp 450.000</div>
+            <div class="price-quota">Kuota 3.000 Peserta</div>
+            <div class="price-period">Masa Aktif 6 Bulan • 3 Jalur Paralel</div>
             <ul class="price-list">
               <li>Pilihan CKG Sekolah atau CKG Umum</li>
               <li>Hingga 3 Akun Petugas Paralel</li>
-              <li>Cocok untuk Patungan Tim UKS / PTM</li>
+              <li>Patungan 5 Nakes cuma Rp 90rb/orang</li>
               <li>Prioritas Bantuan WhatsApp</li>
             </ul>
           </div>
-          <a href="https://wa.me/628111017195?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20*Paket%20Pro%20Semester%20(3.000%20Peserta)*%20CKG%20Terpadu%20V3.5%20via%20QRIS%20%2F%20Transfer." target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;">
+          <a href="https://wa.me/628111017195?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20*Paket%20Pro%20Semester%20(3.000%20Peserta%20-%20Rp%20450.000)*%20CKG%20Terpadu%20V3.5%20via%20QRIS%20%2F%20Transfer." target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;">
             📲 Pesan Paket Semester
           </a>
         </div>
@@ -696,8 +733,9 @@
         <div class="price-card">
           <div>
             <div class="price-title">🏥 Paket Pro Tahunan</div>
-            <div class="price-amount">50.000 Peserta</div>
-            <div class="price-period">Masa Aktif 1 Tahun (365 Hari) • 4 Jalur</div>
+            <div class="price-amount">Rp 950.000</div>
+            <div class="price-quota">Kuota 50.000 Peserta</div>
+            <div class="price-period">Masa Aktif 1 Tahun • 4 Jalur Paralel</div>
             <ul class="price-list">
               <li>Semua Program (CKG Sekolah + Umum)</li>
               <li>4 Akun Petugas Paralel Kecepatan Penuh</li>
@@ -705,7 +743,7 @@
               <li>Dukungan Update Format Terbaru</li>
             </ul>
           </div>
-          <a href="https://wa.me/628111017195?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20*Paket%20Pro%20Tahunan%20(50.000%20Peserta)*%20CKG%20Terpadu%20V3.5." target="_blank" rel="noopener" class="btn btn-secondary" style="width:100%;">
+          <a href="https://wa.me/628111017195?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20*Paket%20Pro%20Tahunan%20(50.000%20Peserta%20-%20Rp%20950.000)*%20CKG%20Terpadu%20V3.5." target="_blank" rel="noopener" class="btn btn-secondary" style="width:100%;">
             📲 Pesan Paket Tahunan
           </a>
         </div>
@@ -716,9 +754,13 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p style="font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">
-        🛡️ CKG Terpadu V3.5 — Asisten Produktivitas Digital Tenaga Kesehatan&nbsp;Indonesia
-      </p>
+      <div class="footer-brand">
+        <svg width="22" height="22" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 4.5L7.5 9.8V19.2C7.5 27.9 12.8 35.6 20 38.2C27.2 35.6 32.5 27.9 32.5 19.2V9.8L20 4.5Z" fill="#10B981"/>
+          <path d="M12.5 20.5H16.2L18.5 15L21.5 25.5L23.8 20.5H27.5" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>CKG Terpadu V3.5 — Asisten Produktivitas Digital Tenaga Kesehatan&nbsp;Indonesia</span>
+      </div>
       <p>
         Informasi &amp; Aktivasi Lisensi (QRIS / Transfer Bank): <a href="https://wa.me/628111017195" style="color: var(--emerald-400); text-decoration: none; font-weight: 700;">WhatsApp&nbsp;0811-1017-195</a>
       </p>
