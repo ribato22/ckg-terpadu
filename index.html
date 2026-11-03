@@ -460,6 +460,80 @@
       margin-right: 6px;
     }
 
+    /* Official QRIS Checkout Panel */
+    .qris-banner {
+      margin-top: 32px;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-emerald);
+      border-radius: 20px;
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 28px;
+      align-items: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    .qris-badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.16);
+      border: 1px solid rgba(52, 211, 153, 0.4);
+      color: var(--emerald-400);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .qris-banner h3 {
+      font-size: clamp(20px, 2.4vw, 25px);
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .qris-steps {
+      list-style: none;
+      margin: 14px 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      color: var(--text-secondary);
+      font-size: 14.5px;
+    }
+
+    .qris-steps li strong {
+      color: var(--text-primary);
+    }
+
+    .qris-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .qris-visual {
+      text-align: center;
+    }
+
+    .qris-hero-img {
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+    }
+
+    .qris-frame-caption {
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
     code {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.9em;
@@ -575,6 +649,10 @@
       }
       .btn {
         white-space: normal;
+      }
+      .qris-banner {
+        grid-template-columns: 1fr;
+        padding: 22px 18px;
       }
     }
   </style>
@@ -812,8 +890,8 @@
               <li>Aktivasi Instan via QRIS / Transfer</li>
             </ul>
           </div>
-          <a href="https://wa.me/628111017195?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20*Paket%20Hemat%201%20Bulan%20(300%20Peserta%20-%20Rp%2099.000)*%20CKG%20Terpadu%20V3.5%20via%20QRIS." target="_blank" rel="noopener" class="btn btn-secondary" style="width:100%;">
-            📲 Pesan Paket Bulanan
+          <a href="#qrisCheckout" onclick="selectLandingPlan('Paket Hemat 1 Bulan (300 Peserta)', 'Rp 99.000')" class="btn btn-secondary" style="width:100%;">
+            💳 Bayar QRIS • Paket Bulanan
           </a>
         </div>
 
@@ -832,8 +910,8 @@
               <li>Prioritas Bantuan WhatsApp</li>
             </ul>
           </div>
-          <a href="https://wa.me/628111017195?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20*Paket%20Pro%20Semester%20(3.000%20Peserta%20-%20Rp%20249.000)*%20CKG%20Terpadu%20V3.5%20via%20QRIS%20%2F%20Transfer." target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;">
-            📲 Pesan Paket Semester
+          <a href="#qrisCheckout" onclick="selectLandingPlan('Paket Pro Semester (3.000 Peserta)', 'Rp 249.000')" class="btn btn-primary" style="width:100%;">
+            💳 Bayar QRIS • Paket Semester
           </a>
         </div>
 
@@ -852,9 +930,39 @@
               <li>Dilengkapi Bukti Nota Pembayaran</li>
             </ul>
           </div>
-          <a href="https://wa.me/628111017195?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20*Paket%20Pro%20Tahunan%20(50.000%20Peserta%20-%20Rp%20499.000)*%20CKG%20Terpadu%20V3.5." target="_blank" rel="noopener" class="btn btn-secondary" style="width:100%;">
-            📲 Pesan Paket Tahunan
+          <a href="#qrisCheckout" onclick="selectLandingPlan('Paket Pro Tahunan (50.000 Peserta)', 'Rp 499.000')" class="btn btn-secondary" style="width:100%;">
+            💳 Bayar QRIS • Paket Tahunan
           </a>
+        </div>
+      </div>
+
+      <!-- OFFICIAL QRIS CHECKOUT PANEL -->
+      <div class="qris-banner" id="qrisCheckout">
+        <div>
+          <span class="qris-badge">QRIS RESMI STANDAR NASIONAL (GPN)</span>
+          <h3 id="landingSelectedPlanHeading">Pembayaran Instan via QRIS: Paket Pro Semester — Rp&nbsp;249.000</h3>
+          <p style="color: var(--text-secondary); font-size: 14.5px;">
+            Merchant Resmi: <b>CKG Terpadu Digital</b> • NMID: <code>ID1026630537011</code> (Menerima seluruh M-Banking BCA, BRI, Mandiri, BNI, BSI, serta GoPay, DANA, OVO &amp; ShopeePay).
+          </p>
+          <ul class="qris-steps">
+            <li><strong>1. Scan Kode QRIS:</strong> Gunakan aplikasi M-Banking atau E-Wallet Anda untuk scan kode QRIS di samping (pastikan nama merchant <b>CKG Terpadu Digital</b>).</li>
+            <li><strong>2. Masukkan Nominal Paket:</strong> Ketik nominal sesuai paket pilihan Anda (<b id="landingSelectedPriceInline">Rp 249.000</b> untuk <span id="landingSelectedNameInline">Paket Pro Semester 3.000 Peserta</span>).</li>
+            <li><strong>3. Konfirmasi &amp; Terima Kode Lisensi (1 Menit):</strong> Klik tombol WhatsApp di bawah untuk mengirim bukti bayar beserta Kode Perangkat aplikasi Anda.</li>
+          </ul>
+          <div class="qris-actions">
+            <a id="landingWaConfirmBtn" href="https://wa.me/628111017195?text=Halo%20Admin%20*CKG%20Terpadu%20Digital*%2C%20saya%20sudah%2Fingin%20membayar%20via%20QRIS%20untuk%20*Paket%20Pro%20Semester%20(3.000%20Peserta%20-%20Rp%20249.000)*.%20Mohon%20bantu%20aktivasi%20kode%20lisensinya." target="_blank" rel="noopener" class="btn btn-primary">
+              📲 Kirim Bukti QRIS &amp; Ambil Lisensi via WA (0811-1017-195)
+            </a>
+            <a href="./qris-ckg-terpadu.jpg" download="QRIS_CKG_Terpadu_Digital.jpg" class="btn btn-secondary">
+              ⬇️ Simpan Gambar QRIS
+            </a>
+          </div>
+        </div>
+        <div class="qris-visual">
+          <a href="./qris-ckg-terpadu.jpg" target="_blank" rel="noopener" title="Klik untuk memperbesar QRIS CKG Terpadu Digital">
+            <img src="./qris-ckg-terpadu.jpg" alt="QRIS Resmi CKG Terpadu Digital NMID ID1026630537011" class="qris-hero-img" />
+          </a>
+          <div class="qris-frame-caption">CKG Terpadu Digital • NMID: ID1026630537011</div>
         </div>
       </div>
     </div>
@@ -918,5 +1026,25 @@
     </div>
   </footer>
 
+  <script>
+    function selectLandingPlan(planName, planPrice) {
+      var h = document.getElementById("landingSelectedPlanHeading");
+      var p = document.getElementById("landingSelectedPriceInline");
+      var n = document.getElementById("landingSelectedNameInline");
+      var btn = document.getElementById("landingWaConfirmBtn");
+      if (h) h.textContent = "Pembayaran Instan via QRIS: " + planName + " — " + planPrice;
+      if (p) p.textContent = planPrice;
+      if (n) n.textContent = planName;
+      if (btn) {
+        var msg =
+          "Halo Admin *CKG Terpadu Digital*,\n\n" +
+          "Saya ingin konfirmasi pembayaran QRIS untuk aktivasi Lisensi CKG Terpadu V3.5:\n" +
+          "• Paket Pilihan: *" + planName + " (" + planPrice + ")*\n" +
+          "• Merchant QRIS: *CKG Terpadu Digital (NMID: ID1026630537011)*\n\n" +
+          "Berikut bukti bayar & Kode Perangkat aplikasi saya. Mohon dikirimkan kode lisensinya. Terima kasih.";
+        btn.href = "https://wa.me/628111017195?text=" + encodeURIComponent(msg);
+      }
+    }
+  </script>
 </body>
 </html>
