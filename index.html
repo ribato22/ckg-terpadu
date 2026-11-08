@@ -719,15 +719,27 @@
         <span>💳 Pembayaran Mudah via QRIS / Transfer Bank</span>
       </div>
 
-      <!-- 60-Second Video Player -->
+      <!-- Dual-Video Showcase (Teaser & Tutorial) -->
       <div class="video-frame">
-        <div class="video-topbar">
-          <div class="video-dots"><span></span><span></span><span></span></div>
-          <div>🎬 Video Demo 60 Detik — CKG Terpadu V3.5 (Nyalakan Suara 🔊)</div>
-          <div>1080p HD</div>
+        <div class="video-topbar" style="flex-wrap:wrap;gap:10px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div class="video-dots"><span></span><span></span><span></span></div>
+            <div id="landingVideoTitle">🔥 Video 1: Teaser &amp; Bukti Nyata 100% Tuntas (Suara &amp; Musik 🔊)</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <button type="button" id="btnLandingTabTeaser" onclick="switchLandingVideo('teaser')" class="btn btn-primary btn-sm" style="padding:6px 14px;font-size:12.5px;">
+              🔥 Video 1: Teaser &amp; Promosi (1:16)
+            </button>
+            <button type="button" id="btnLandingTabTutorial" onclick="switchLandingVideo('tutorial')" class="btn btn-secondary btn-sm" style="padding:6px 14px;font-size:12.5px;">
+              🎬 Video 2: Tutorial 4 Langkah (2:28)
+            </button>
+            <a id="btnLandingDownloadVideo" href="./Video_Demo_CKG_Terpadu_V3.5_60s.mp4" download="Video_1_Teaser_Promosi_CKG_Terpadu_V3.5.mp4" class="btn btn-secondary btn-sm" style="padding:6px 12px;font-size:12px;">
+              ⬇️ Unduh .MP4
+            </a>
+          </div>
         </div>
-        <video controls preload="metadata" playsinline>
-          <source src="./Video_Demo_CKG_Terpadu_V3.5_60s.mp4" type="video/mp4" />
+        <video id="landingVideoPlayer" controls preload="metadata" poster="./teaser_poster.png" playsinline>
+          <source id="landingVideoSource" src="./Video_Demo_CKG_Terpadu_V3.5_60s.mp4" type="video/mp4" />
           Browser Anda tidak mendukung pemutar video HTML5.
         </video>
       </div>
@@ -752,7 +764,7 @@
             </span>
             <h3>Dual-Program: Sekolah &amp; Umum</h3>
           </div>
-          <p>Satu klik untuk berpindah antara <b>CKG Sekolah (33 Kolom Anak &amp; Remaja)</b> dan <b>CKG Umum (37 Kolom Dewasa &amp; Lansia)</b> lengkap dengan GDS, Kolesterol &amp; Lingkar&nbsp;Perut.</p>
+          <p>Satu klik untuk berpindah antara <b>CKG Sekolah (33 Kolom Anak &amp; Remaja)</b>, <b>CKG Umum (37 Kolom Dewasa &amp; Lansia)</b>, hingga <b>Blangko Kemenkes (<code>Data_Siap_CKG</code>)</b>.</p>
         </div>
 
         <div class="feature-card">
@@ -760,9 +772,9 @@
             <span class="feature-icon-box" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg>
             </span>
-            <h3>Auto-Healer Excel Cerdas</h3>
+            <h3>Auto-Healer Excel &amp; Pencarian Sekolah Pintar</h3>
           </div>
-          <p>Tidak perlu merapikan Excel secara manual. Sistem otomatis memperbaiki nomor WhatsApp yang kehilangan angka <code>0</code> di depan, tanggal lahir terbalik, dan ejaan&nbsp;kelas.</p>
+          <p>Otomatis memperbaiki nomor WhatsApp yang kehilangan angka <code>0</code> di depan, format tanggal lahir ISO, serta pencocokan pintar nama sekolah (<code>SDN 011</code> &harr; <code>SD NEGERI 011</code>).</p>
         </div>
 
         <div class="feature-card">
@@ -770,9 +782,9 @@
             <span class="feature-icon-box" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             </span>
-            <h3>Tuntas 3 Tahap di Balik Layar</h3>
+            <h3>Paket Lengkap 3 Tahap &amp; Checkpoint Aman</h3>
           </div>
-          <p>Menjalankan Pendaftaran &amp; Kehadiran, Kuesioner Skrining Mandiri, hingga Pemeriksaan Fisik Nakes &amp; Kirim Rapor Kesehatan WhatsApp tanpa mengganggu pekerjaan&nbsp;lain.</p>
+          <p>Menuntaskan Pendaftaran &amp; Kehadiran, Kuesioner Skrining Mandiri, hingga Pemeriksaan Nakes &amp; Kirim Rapor WA. Aman dijeda kapan saja tanpa mengulang dari awal.</p>
         </div>
 
         <div class="feature-card">
@@ -780,9 +792,9 @@
             <span class="feature-icon-box" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             </span>
-            <h3>Brankas Multi-Akun (1–4 Jalur)</h3>
+            <h3>Brankas Multi-Akun (1–4 Jalur Stabil)</h3>
           </div>
-          <p>Simpan hingga 4 akun petugas sekaligus dengan fitur <i>Auto-KeepAlive</i>. Bebas pilih mode 1 Jalur Turbo Stabil atau hingga 4 Jalur Paralel untuk ratusan&nbsp;peserta.</p>
+          <p>Prinsip <b>1 Akun = 1 Jalur Stabil</b> mencegah peringatan <i>"akun digunakan perangkat lain"</i>. Hubungkan hingga 4 akun petugas berbeda untuk 4 jalur paralel berkecepatan tinggi.</p>
         </div>
 
         <div class="feature-card">
@@ -790,9 +802,9 @@
             <span class="feature-icon-box" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </span>
-            <h3>100% Self-Hosted di Laptop Anda</h3>
+            <h3>100% Self-Hosted &amp; Panduan Cepat Visual</h3>
           </div>
-          <p>Berjalan langsung di komputer masing-masing petugas. Tidak ada data NIK/pasien yang dikirim ke server pihak ketiga dan bebas risiko pemblokiran IP&nbsp;bersama.</p>
+          <p>Berjalan langsung di laptop masing-masing petugas dengan privasi penuh, dilengkapi menu <b>📖 Panduan Cepat Visual &amp; Video Tutorial</b> bagi petugas baru.</p>
         </div>
 
         <div class="feature-card">
@@ -800,9 +812,9 @@
             <span class="feature-icon-box" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
             </span>
-            <h3>Unduh Rekap Excel &amp; Filter Cepat</h3>
+            <h3>Laporan Eksekutif Excel 2-Sheet Siap Cetak</h3>
           </div>
-          <p>Pantau progres secara langsung dan unduh laporan rekap hasil pemeriksaan lengkap dengan Nomor Tiket, Status Rapor WA, dan Kesimpulan&nbsp;Medis.</p>
+          <p>Menghasilkan <b>Sheet 1: Data Detail Klinis Berwarna</b> (tanpa istilah teknis) dan <b>Sheet 2: Ringkasan Eksekutif</b> siap cetak untuk Kepala Puskesmas &amp; Dinas Kesehatan.</p>
         </div>
       </div>
     </div>
@@ -1027,6 +1039,45 @@
   </footer>
 
   <script>
+    function switchLandingVideo(mode) {
+      var player = document.getElementById("landingVideoPlayer");
+      var source = document.getElementById("landingVideoSource");
+      var titleEl = document.getElementById("landingVideoTitle");
+      var dlBtn = document.getElementById("btnLandingDownloadVideo");
+      var btnTeaser = document.getElementById("btnLandingTabTeaser");
+      var btnTut = document.getElementById("btnLandingTabTutorial");
+      if (!player || !source) return;
+
+      var isTeaser = mode === "teaser";
+      var targetSrc = isTeaser
+        ? "./Video_Demo_CKG_Terpadu_V3.5_60s.mp4"
+        : "./Video_Tutorial_CKG_Terpadu_V3.5.mp4";
+      var targetPoster = isTeaser ? "./teaser_poster.png" : "./tutorial_poster.png";
+
+      if (btnTeaser && btnTut) {
+        btnTeaser.className = isTeaser ? "btn btn-primary btn-sm" : "btn btn-secondary btn-sm";
+        btnTut.className = !isTeaser ? "btn btn-primary btn-sm" : "btn btn-secondary btn-sm";
+      }
+      if (titleEl) {
+        titleEl.innerHTML = isTeaser
+          ? "🔥 Video 1: Teaser &amp; Bukti Nyata 100% Tuntas (Suara &amp; Musik 🔊)"
+          : "🎬 Video 2: Tutorial 4 Langkah Penggunaan CKG Terpadu V3.5 (Full HD 🔊)";
+      }
+      if (dlBtn) {
+        dlBtn.href = targetSrc;
+        dlBtn.setAttribute(
+          "download",
+          isTeaser
+            ? "Video_1_Teaser_Promosi_CKG_Terpadu_V3.5.mp4"
+            : "Video_2_Tutorial_CKG_Terpadu_V3.5.mp4"
+        );
+      }
+      player.pause();
+      player.setAttribute("poster", targetPoster);
+      source.setAttribute("src", targetSrc);
+      player.load();
+    }
+
     function selectLandingPlan(planName, planPrice) {
       var h = document.getElementById("landingSelectedPlanHeading");
       var p = document.getElementById("landingSelectedPriceInline");
