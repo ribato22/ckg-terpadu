@@ -737,10 +737,13 @@
           </div>
           <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
             <button type="button" id="btnLandingTabTeaser" onclick="switchLandingVideo('teaser')" class="btn btn-primary btn-sm" style="padding:6px 14px;font-size:12.5px;">
-              🔥 Video 1: Teaser &amp; Promosi (1:16)
+              🔥 Video 1: Teaser (16:9)
             </button>
             <button type="button" id="btnLandingTabTutorial" onclick="switchLandingVideo('tutorial')" class="btn btn-secondary btn-sm" style="padding:6px 14px;font-size:12.5px;">
-              🎬 Video 2: Tutorial 4 Langkah (2:28)
+              🎬 Video 2: Tutorial (16:9)
+            </button>
+            <button type="button" id="btnLandingTabReels" onclick="switchLandingVideo('reels')" class="btn btn-secondary btn-sm" style="padding:6px 14px;font-size:12.5px;">
+              📱 Video 3: Sosmed / Reels (9:16)
             </button>
             <a id="btnLandingDownloadVideo" href="./Video_Demo_CKG_Terpadu_V3.5_60s.mp4" download="Video_1_Teaser_Promosi_CKG_Terpadu_V3.5.mp4" class="btn btn-secondary btn-sm" style="padding:6px 12px;font-size:12px;">
               ⬇️ Unduh .MP4
@@ -1055,32 +1058,38 @@
       var dlBtn = document.getElementById("btnLandingDownloadVideo");
       var btnTeaser = document.getElementById("btnLandingTabTeaser");
       var btnTut = document.getElementById("btnLandingTabTutorial");
+      var btnReels = document.getElementById("btnLandingTabReels");
       if (!player || !source) return;
 
-      var isTeaser = mode === "teaser";
-      var targetSrc = isTeaser
-        ? "./Video_Demo_CKG_Terpadu_V3.5_60s.mp4"
-        : "./Video_Tutorial_CKG_Terpadu_V3.5.mp4";
-      var targetPoster = isTeaser ? "./teaser_poster.png" : "./tutorial_poster.png";
+      var targetSrc = "./Video_Demo_CKG_Terpadu_V3.5_60s.mp4";
+      var targetPoster = "./teaser_poster.png";
+      var targetTitle = "🔥 Video 1: Teaser &amp; Bukti Nyata 100% Tuntas (Suara &amp; Musik 🔊)";
+      var targetDl = "Video_1_Teaser_Promosi_CKG_Terpadu_V3.5.mp4";
 
-      if (btnTeaser && btnTut) {
-        btnTeaser.className = isTeaser ? "btn btn-primary btn-sm" : "btn btn-secondary btn-sm";
-        btnTut.className = !isTeaser ? "btn btn-primary btn-sm" : "btn btn-secondary btn-sm";
+      if (mode === "tutorial") {
+        targetSrc = "./Video_Tutorial_CKG_Terpadu_V3.5.mp4";
+        targetPoster = "./tutorial_poster.png";
+        targetTitle = "🎬 Video 2: Tutorial 4 Langkah Penggunaan CKG Terpadu V3.5 (Full HD 🔊)";
+        targetDl = "Video_2_Tutorial_CKG_Terpadu_V3.5.mp4";
+      } else if (mode === "reels") {
+        targetSrc = "./Video_Sosmed_Vertical_9x16_CKG_Terpadu_V3.5.mp4";
+        targetPoster = "./reels_poster.png";
+        targetTitle = "📱 Video 3: Format Vertikal HP (9:16) untuk TikTok, Reels &amp; Status WA (🔊)";
+        targetDl = "Video_Sosmed_Vertical_9x16_CKG_Terpadu_V3.5.mp4";
       }
-      if (titleEl) {
-        titleEl.innerHTML = isTeaser
-          ? "🔥 Video 1: Teaser &amp; Bukti Nyata 100% Tuntas (Suara &amp; Musik 🔊)"
-          : "🎬 Video 2: Tutorial 4 Langkah Penggunaan CKG Terpadu V3.5 (Full HD 🔊)";
-      }
+
+      if (btnTeaser) btnTeaser.className = mode === "teaser" ? "btn btn-primary btn-sm" : "btn btn-secondary btn-sm";
+      if (btnTut) btnTut.className = mode === "tutorial" ? "btn btn-primary btn-sm" : "btn btn-secondary btn-sm";
+      if (btnReels) btnReels.className = mode === "reels" ? "btn btn-primary btn-sm" : "btn btn-secondary btn-sm";
+
+      if (titleEl) titleEl.innerHTML = targetTitle;
       if (dlBtn) {
         dlBtn.href = targetSrc;
-        dlBtn.setAttribute(
-          "download",
-          isTeaser
-            ? "Video_1_Teaser_Promosi_CKG_Terpadu_V3.5.mp4"
-            : "Video_2_Tutorial_CKG_Terpadu_V3.5.mp4"
-        );
+        dlBtn.setAttribute("download", targetDl);
       }
+      player.style.maxHeight = mode === "reels" ? "680px" : "none";
+      player.style.width = mode === "reels" ? "auto" : "100%";
+      player.style.margin = mode === "reels" ? "0 auto" : "0";
       player.pause();
       player.setAttribute("poster", targetPoster);
       source.setAttribute("src", targetSrc);
