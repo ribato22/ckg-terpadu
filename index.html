@@ -728,12 +728,12 @@
         <span>💳 Pembayaran Mudah via QRIS / Transfer Bank</span>
       </div>
 
-      <!-- Dual-Video Showcase (Teaser & Tutorial) -->
+      <!-- Triple-Video Showcase (Teaser, Tutorial & Reels 9:16) -->
       <div class="video-frame">
         <div class="video-topbar" style="flex-wrap:wrap;gap:10px;">
           <div style="display:flex;align-items:center;gap:10px;">
             <div class="video-dots"><span></span><span></span><span></span></div>
-            <div id="landingVideoTitle">🔥 Video 1: Teaser &amp; Bukti Nyata 100% Tuntas (Suara &amp; Musik 🔊)</div>
+            <div id="landingVideoTitle">🔥 Video 1: Teaser &amp; Promosi CKG Terpadu V3.5 (Suara &amp; Musik 🔊)</div>
           </div>
           <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
             <button type="button" id="btnLandingTabTeaser" onclick="switchLandingVideo('teaser')" class="btn btn-primary btn-sm" style="padding:6px 14px;font-size:12.5px;">
@@ -745,13 +745,13 @@
             <button type="button" id="btnLandingTabReels" onclick="switchLandingVideo('reels')" class="btn btn-secondary btn-sm" style="padding:6px 14px;font-size:12.5px;">
               📱 Video 3: Sosmed / Reels (9:16)
             </button>
-            <a id="btnLandingDownloadVideo" href="./Video_Demo_CKG_Terpadu_V3.5_60s.mp4" download="Video_1_Teaser_Promosi_CKG_Terpadu_V3.5.mp4" class="btn btn-secondary btn-sm" style="padding:6px 12px;font-size:12px;">
+            <a id="btnLandingDownloadVideo" href="./Video_Demo_CKG_Terpadu_V3.5_60s.mp4?v=3.5.3" download="Video_1_Teaser_Promosi_CKG_Terpadu_V3.5.mp4" class="btn btn-secondary btn-sm" style="padding:6px 12px;font-size:12px;">
               ⬇️ Unduh .MP4
             </a>
           </div>
         </div>
-        <video id="landingVideoPlayer" controls preload="metadata" poster="./teaser_poster.png" playsinline>
-          <source id="landingVideoSource" src="./Video_Demo_CKG_Terpadu_V3.5_60s.mp4" type="video/mp4" />
+        <video id="landingVideoPlayer" controls preload="metadata" poster="./teaser_poster.png?v=3.5.3" playsinline>
+          <source id="landingVideoSource" src="./Video_Demo_CKG_Terpadu_V3.5_60s.mp4?v=3.5.3" type="video/mp4" />
           Browser Anda tidak mendukung pemutar video HTML5.
         </video>
       </div>
@@ -1061,19 +1061,19 @@
       var btnReels = document.getElementById("btnLandingTabReels");
       if (!player || !source) return;
 
-      var targetSrc = "./Video_Demo_CKG_Terpadu_V3.5_60s.mp4";
-      var targetPoster = "./teaser_poster.png";
-      var targetTitle = "🔥 Video 1: Teaser &amp; Bukti Nyata 100% Tuntas (Suara &amp; Musik 🔊)";
+      var targetSrc = "./Video_Demo_CKG_Terpadu_V3.5_60s.mp4?v=3.5.3";
+      var targetPoster = "./teaser_poster.png?v=3.5.3";
+      var targetTitle = "🔥 Video 1: Teaser &amp; Promosi CKG Terpadu V3.5 (Suara &amp; Musik 🔊)";
       var targetDl = "Video_1_Teaser_Promosi_CKG_Terpadu_V3.5.mp4";
 
       if (mode === "tutorial") {
-        targetSrc = "./Video_Tutorial_CKG_Terpadu_V3.5.mp4";
-        targetPoster = "./tutorial_poster.png";
+        targetSrc = "./Video_Tutorial_CKG_Terpadu_V3.5.mp4?v=3.5.3";
+        targetPoster = "./tutorial_poster.png?v=3.5.3";
         targetTitle = "🎬 Video 2: Tutorial 4 Langkah Penggunaan CKG Terpadu V3.5 (Full HD 🔊)";
         targetDl = "Video_2_Tutorial_CKG_Terpadu_V3.5.mp4";
       } else if (mode === "reels") {
-        targetSrc = "./Video_Sosmed_Vertical_9x16_CKG_Terpadu_V3.5.mp4";
-        targetPoster = "./reels_poster.png";
+        targetSrc = "./Video_Sosmed_Vertical_9x16_CKG_Terpadu_V3.5.mp4?v=3.5.3";
+        targetPoster = "./reels_poster.png?v=3.5.3";
         targetTitle = "📱 Video 3: Format Vertikal HP (9:16) untuk TikTok, Reels &amp; Status WA (🔊)";
         targetDl = "Video_Sosmed_Vertical_9x16_CKG_Terpadu_V3.5.mp4";
       }
